@@ -48,9 +48,8 @@ def main():
     train_set.plot_variables(network.full_name / "train_dist")
 
     ## Create the validation and training datasets
-    train_set, valid_set = train_valid_split(
-        train_set, train_conf["val_frac"], rand_split=False
-    )
+    valid_set = NuRegData(dset="val", **data_conf)
+    valid_set.apply_preprocess(scalers)
 
     ## Load the trainer
     trainer = Trainer(

@@ -52,12 +52,14 @@ class NuRegData(Dataset):
         self.out_vars = out_vars.split(",") if isinstance(out_vars, str) else out_vars
 
         ## Make sure the dset variable is correct
-        if dset not in ["test", "train"]:
+        if dset not in ["test", "train", "val"]:
             raise ValueError("Unknown dset type: ", dset)
 
         ## Get the list of files to use for the dataset (0 sample is reserved for test)
         if dset == "train":
-            file_list = list(Path(path).glob("train*"))
+            file_list = [Path(path) / "train.h5"]
+        elif dset == "val":
+            file_list = [Path(path) / "val.h5"]
         else:
             file_list = [Path(path) / "test.h5"]
 
