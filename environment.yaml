@@ -1,0 +1,15 @@
+name: neutrino_flows-py310
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.18
+  - h5py=3.14.0
+  - joblib=1.5.1
+  - matplotlib=3.10.3
+  - nflows=0.14
+  - numpy=1.26.4
+  - pyyaml=6.0.2
+  - scikit-learn=1.7.0
+  - pytorch-gpu=1.11.0
+  - tqdm=4.67.1
+  - uproot=5.6.3
