@@ -60,8 +60,10 @@ class NuRegData(Dataset):
             file_list = [Path(path) / "train.h5"]
         elif dset == "val":
             file_list = [Path(path) / "val.h5"]
-        else:
+        elif dset == "test":
             file_list = [Path(path) / "test.h5"]
+        else:
+            raise ValueError(f"Unknown dset type: {dset}")
 
         ## Raise an error if there are no files found
         if not file_list:
@@ -149,6 +151,7 @@ class NuRegData(Dataset):
                 continue
 
             ## Change the group data tensors and the names
+            print(f" - changing {key} coordinates to {new_vars}")
             self.data[key], self.variables[key] = change_cords(
                 self.data[key],
                 self.variables[key],
