@@ -1,6 +1,6 @@
 base_kwargs: # Base network arguments for saving and loading
   name: Test # Name to use for the network and its directory
-  save_dir: ./ # Where to save the network directory
+  save_dir: ./logs # Where to save the network directory
   device: gpu # Which device to initialise the network onto
 
 dpset_kwargs: # The keyword arguments to create the jet deep set, passed to gnets.modules.DeepSet()
